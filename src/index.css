@@ -1,0 +1,172 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Design System - Dark Tech Portfolio */
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 172 66% 50%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 172 66% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 172 66% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(172 66% 50%), hsl(190 70% 45%));
+    --gradient-card: linear-gradient(180deg, hsl(222 47% 10%), hsl(222 47% 8%));
+    --gradient-text: linear-gradient(135deg, hsl(172 66% 60%), hsl(190 70% 55%));
+    --glow-primary: 0 0 40px hsl(172 66% 50% / 0.3);
+    --glow-card: 0 0 60px hsl(172 66% 50% / 0.1);
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border;
+border-color: hsl(var(--border));
+
+  }
+  
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px hsl(172 66% 50% / 0.5);
+  }
+
+  .glass-card {
+    background: hsl(222 47% 8% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(222 30% 20%);
+  }
+
+  .project-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(222 30% 18%);
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    border-color: hsl(172 66% 50% / 0.5);
+    box-shadow: var(--glow-card);
+    transform: translateY(-4px);
+  }
+
+  .tech-badge {
+    @apply px-3 py-1.5 text-xs font-mono rounded-full bg-amber-600;
+    background: hsl(222 47% 12%);
+    color: hsl(172, 66%, 60%);
+    border: 1px solid hsl(172 66% 50% / 0.2);
+  }
+
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors font-medium;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-number {
+    @apply font-mono text-primary text-sm;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
