@@ -46,6 +46,7 @@ export const projects = [
     tech: ["Java", "Android", "Room DB"],
     img: "/src/assets/Trasstarea.png",
     featured: true,
+    github: "https://github.com/FjuDev/TrassTarea",
   },
   {
     title: "App Web Gestión de Proyectos",
@@ -56,12 +57,13 @@ export const projects = [
     title: "Portfolio Personal",
     description: "Este mismo portfolio, construido con tecnologías modernas de desarrollo web.",
     tech: ["React", "TypeScript", "Tailwind"],
+    github: "https://github.com/FjuDev/Portfolio",
   },
   {
     title: "Videojuego 2D",
     description: "Videojuego ambientado en un cementerio, con exploración, tesoros, NPCs, colisiones y mejoras visuales",
     tech: ["Java", "LibGDX", "Tiled"],
-    github: "https://github.com",
+    github: "https://github.com/FjuDev/Juego_2D",
   },
 ];
 
