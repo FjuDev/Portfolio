@@ -46,7 +46,7 @@ export const About = () => {
               <div className="relative w-full h-full bg-secondary rounded-lg overflow-hidden border-2 border-primary/50">
                 <div className="w-full h-full flex items-center justify-center text-muted-foreground">
                   <img
-                    src="/src/assets/imagenPerfil.JPEG"
+                    src="/imagenPerfil.JPEG"
                     className="text-6xl font-bold text-primary/30"
                   ></img>
                 </div>

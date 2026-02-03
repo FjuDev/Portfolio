@@ -25,7 +25,7 @@ export const projects = [
     "Tailwind CSS"
   ],
   demo: "https://fish-hunter-fj.netlify.app/",
-  img: "/src/assets/fish_hunter.png",
+  img: "/fish_hunter.png",
   featured: true
 
   },
@@ -36,7 +36,7 @@ export const projects = [
     tech: ["Wordpress", "Elementor", "Woocomerce", "Stripe"],
 
     demo: "https://sonrieconmigo.es/",
-    img: "/src/assets/sonrieconmigo.png",
+    img: "/sonrieconmigo.png",
     featured: true,
   },
   {
@@ -44,7 +44,7 @@ export const projects = [
     title: "App de Gestión de Tareas",
     description: "Aplicación Android para la gestión de tareas, desarrollada en Java con persistencia local mediante Room DB",
     tech: ["Java", "Android", "Room DB"],
-    img: "/src/assets/Trasstarea.png",
+    img: "/Trasstarea.png",
     featured: true,
     github: "https://github.com/FjuDev/TrassTarea",
   },
