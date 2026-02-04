@@ -22,7 +22,7 @@ export const Footer = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="mailto:fjurado@icloud.com.com"
+            href="mailto:fjurado@icloud.com"
             className="text-muted-foreground hover:text-primary transition-colors"
             aria-label="Email"
           >
@@ -32,7 +32,7 @@ export const Footer = () => {
 
         <p className="text-muted-foreground text-sm font-mono">
           Diseñado y desarrollado por{" "}
-          <span className="text-primary">Tu Nombre</span>
+          <span className="text-primary">FjDev</span>
         </p>
       </div>
     </footer>
