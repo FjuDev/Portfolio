@@ -1,0 +1,7 @@
+services:
+  web:
+    image: ghcr.io/fjudev/REPOSITORIO:latest
+    container_name: fjudev-web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3100:80"
