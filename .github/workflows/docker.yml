@@ -33,3 +33,42 @@ jobs:
           tags: |
             ghcr.io/fjudev/portfolio:latest
             ghcr.io/fjudev/portfolio:${{ github.sha }}
+
+
+  deploy:
+    name: Deploy to Larry
+    needs: build
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: portfolio-production
+      cancel-in-progress: false
+
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          SSH_HOST_KEY: ${{ secrets.VPS_SSH_HOST_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s %s\n' "$VPS_HOST" "$SSH_HOST_KEY" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy Portfolio
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          DEPLOY_SHA: ${{ github.sha }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            -o StrictHostKeyChecking=yes \
+            -o BatchMode=yes \
+            -o ConnectTimeout=15 \
+            "$VPS_USER@$VPS_HOST" \
+            "bash /opt/docker/portfolio/deploy.sh '$DEPLOY_SHA'"
